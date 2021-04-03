@@ -1,0 +1,10 @@
+.DS_Store
+.project
+.classpath
+.settings/
+/target
+.cache-main
+.cache-tests
+derby.log
+*.iml
+.idea
