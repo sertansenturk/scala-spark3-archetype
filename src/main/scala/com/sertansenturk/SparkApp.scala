@@ -16,7 +16,6 @@ object SparkApp extends App {
   println("Deploy Mode :" + spark.sparkContext.deployMode);
   println("Master :" + spark.sparkContext.master);
 
-  val columns = Seq("language", "users_count")
   val data: Seq[(String, Int)] = Seq(("Java", 2000), ("Python", 100000), ("Scala", 300))
 
   val languages: Dataset[Language] = transformer.createLanguages(data)
