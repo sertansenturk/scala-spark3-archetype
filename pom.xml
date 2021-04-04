@@ -24,7 +24,7 @@
     <scalatest-maven-plugin.version>2.0.2</scalatest-maven-plugin.version>
     <scopt.version>3.7.1</scopt.version>
     <spark.version>3.1.1</spark.version>
-    <spark-testing-base.version>2.4.5_0.14.0</spark-testing-base.version>
+    <spark-testing-base.version>3.0.1_1.0.0</spark-testing-base.version>
   </properties>
 
   <dependencies>
