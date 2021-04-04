@@ -47,13 +47,13 @@
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_${scala.major-minor-version}</artifactId>
-      <version>3.1.1</version>
+      <version>${spark.version}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-sql_${scala.major-minor-version}</artifactId>
-      <version>3.1.1</version>
+      <version>${spark.version}</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
