@@ -11,10 +11,10 @@
   <packaging>jar</packaging>
 
   <properties>
-    <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
-    <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
-    <maven-surefire-plugin.version>2.7</maven-surefire-plugin.version>
+    <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <scala.major-minor-version>2.12</scala.major-minor-version>
     <scala.version>${scala.major-minor-version}.13</scala.version>
     <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
