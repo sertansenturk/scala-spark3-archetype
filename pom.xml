@@ -24,6 +24,7 @@
     <scalatest-maven-plugin.version>2.0.2</scalatest-maven-plugin.version>
     <scopt.version>3.7.1</scopt.version>
     <spark.version>3.1.1</spark.version>
+    <spark-testing-base.version>2.4.5_0.14.0</spark-testing-base.version>
   </properties>
 
   <dependencies>
@@ -51,13 +52,27 @@
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_${scala.major-minor-version}</artifactId>
       <version>${spark.version}</version>
-      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-hive_${scala.major-minor-version}</artifactId>
+      <version>${spark.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-mllib_${scala.major-minor-version}</artifactId>
+      <version>${spark.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-sql_${scala.major-minor-version}</artifactId>
       <version>${spark.version}</version>
-      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.holdenkarau</groupId>
+      <artifactId>spark-testing-base_${scala.major-minor-version}</artifactId>
+      <version>${spark-testing-base.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
