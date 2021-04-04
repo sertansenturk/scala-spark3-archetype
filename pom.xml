@@ -11,20 +11,27 @@
   <packaging>jar</packaging>
 
   <properties>
+    <aws-java-sdk.version>1.11.327</aws-java-sdk.version>
     <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
     <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
-    <maven-surefire-plugin.version>2.7</maven-surefire-plugin.version>
     <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
+    <maven-surefire-plugin.version>2.7</maven-surefire-plugin.version>
     <scala.major-minor-version>2.12</scala.major-minor-version>
     <scala.version>2.12.13</scala.version>
     <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
     <scalariform-maven-plugin.version>0.2.2</scalariform-maven-plugin.version>
     <scalatest.version>3.0.0</scalatest.version>
     <scalatest-maven-plugin.version>2.0.2</scalatest-maven-plugin.version>
+    <scopt.version>3.7.1</scopt.version>
     <spark.version>3.1.1</spark.version>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk</artifactId>
+      <version>${aws-java-sdk.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
@@ -34,6 +41,11 @@
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_${scala.major-minor-version}</artifactId>
       <version>${scalatest.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.scopt</groupId>
+      <artifactId>scopt_${scala.major-minor-version}</artifactId>
+      <version>${scopt.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
