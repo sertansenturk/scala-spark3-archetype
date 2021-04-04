@@ -1,4 +1,4 @@
-package com.sertansenturk.schema
+package com.sertansenturk.archetype.extract.schema
 
 case class Language(
     language: String,

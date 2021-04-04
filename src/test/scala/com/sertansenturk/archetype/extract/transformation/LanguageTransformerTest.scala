@@ -1,15 +1,15 @@
-package com.sertansenturk
+package com.sertansenturk.archetype.extract.transformation
 
-import com.sertansenturk.language.LanguageTransformer
-import org.scalatest.FlatSpec
 import com.holdenkarau.spark.testing.DatasetSuiteBase
-import com.sertansenturk.schema.Language
+import com.sertansenturk.archetype.extract.schema.Language
 import org.apache.spark.sql.SparkSession
 
+import org.scalatest.FlatSpec
+
 class LanguageTransformerTest extends FlatSpec with DatasetSuiteBase {
-  import spark.implicits._
   implicit lazy val sparkImpl: SparkSession = spark
   lazy val transformer = new LanguageTransformer()(spark)
+  import spark.implicits._
 
   "simple test" should "pass" in {
     assert(1 == 1)

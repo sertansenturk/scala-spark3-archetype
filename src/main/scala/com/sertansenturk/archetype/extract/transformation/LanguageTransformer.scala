@@ -1,6 +1,6 @@
-package com.sertansenturk.language
+package com.sertansenturk.archetype.extract.transformation
 
-import com.sertansenturk.schema.Language
+import com.sertansenturk.archetype.extract.schema.Language
 import org.apache.spark.sql.{ Dataset, SparkSession }
 
 class LanguageTransformer(implicit spark: SparkSession) extends Serializable {

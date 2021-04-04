@@ -1,6 +1,7 @@
-package com.sertansenturk
-import com.sertansenturk.language.LanguageTransformer
-import com.sertansenturk.schema.Language
+package com.sertansenturk.archetype
+
+import com.sertansenturk.archetype.extract.schema.Language
+import com.sertansenturk.archetype.extract.transformation.LanguageTransformer
 import org.apache.spark.sql.{ Dataset, SparkSession }
 
 object SparkApp extends App {
