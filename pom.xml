@@ -18,10 +18,10 @@
     <scala.major-minor-version>2.12</scala.major-minor-version>
     <scala.version>${scala.major-minor-version}.13</scala.version>
     <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
-    <scalariform-maven-plugin.version>0.2.2</scalariform-maven-plugin.version>
+    <scalariform-maven-plugin.version>0.2.3</scalariform-maven-plugin.version>
     <scalatest.version>3.0.0</scalatest.version>
     <scalatest-maven-plugin.version>2.0.2</scalatest-maven-plugin.version>
-    <scopt.version>3.7.1</scopt.version>
+    <scopt.version>4.0.1</scopt.version>
     <spark.version>3.0.1</spark.version>
     <spark-testing-base.version>3.0.1_1.0.0</spark-testing-base.version>
   </properties>
