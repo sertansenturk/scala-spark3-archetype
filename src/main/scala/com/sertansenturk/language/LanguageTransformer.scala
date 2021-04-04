@@ -1,7 +1,7 @@
 package com.sertansenturk.language
 
 import com.sertansenturk.schema.Language
-import org.apache.spark.sql.{Dataset, SparkSession}
+import org.apache.spark.sql.{ Dataset, SparkSession }
 
 class LanguageTransformer(implicit spark: SparkSession) extends Serializable {
   import spark.implicits._

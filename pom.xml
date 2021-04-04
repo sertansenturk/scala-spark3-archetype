@@ -4,9 +4,15 @@
   <artifactId>scala-spark3-archetype</artifactId>
   <version>0.1.0</version>
   <inceptionYear>2008</inceptionYear>
+
   <properties>
+    <maven-surefire-plugin.version>2.7</maven-surefire-plugin.version>
     <scala.major-minor-version>2.12</scala.major-minor-version>
     <scala.version>2.12.13</scala.version>
+    <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
+    <scalariform-maven-plugin.version>0.2.2</scalariform-maven-plugin.version>
+    <scalatest.version>3.0.0</scalatest.version>
+    <scalatest-maven-plugin.version>1.0</scalatest-maven-plugin.version>
     <spark.version>3.1.1</spark.version>
   </properties>
 
@@ -33,16 +39,9 @@
       <version>${scala.version}</version>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.4</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.specs</groupId>
-      <artifactId>specs</artifactId>
-      <version>1.2.5</version>
-      <scope>test</scope>
+      <groupId>org.scalatest</groupId>
+      <artifactId>scalatest_${scala.major-minor-version}</artifactId>
+      <version>${scalatest.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
@@ -63,22 +62,71 @@
     <testSourceDirectory>src/test/scala</testSourceDirectory>
     <plugins>
       <plugin>
-        <groupId>org.scala-tools</groupId>
-        <artifactId>maven-scala-plugin</artifactId>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>${scala-maven-plugin.version}</version>
         <executions>
           <execution>
+            <id>scala-compile-first</id>
+            <phase>process-resources</phase>
             <goals>
+              <goal>add-source</goal>
               <goal>compile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>scala-test-compile</id>
+            <phase>process-test-resources</phase>
+            <goals>
               <goal>testCompile</goal>
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <!-- disable surefire -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
         <configuration>
-          <scalaVersion>${scala.version}</scalaVersion>
-          <args>
-            <arg>-target:jvm-1.5</arg>
-          </args>
+          <skipTests>true</skipTests>
         </configuration>
+      </plugin>
+      <!-- enable scalatest -->
+      <plugin>
+        <groupId>org.scalatest</groupId>
+        <artifactId>scalatest-maven-plugin</artifactId>
+        <version>${scalatest-maven-plugin.version}</version>
+        <configuration>
+          <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+          <junitxml>.</junitxml>
+          <filereports>WDF TestSuite.txt</filereports>
+        </configuration>
+        <executions>
+          <execution>
+            <id>test</id>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.tashoyan</groupId>
+        <artifactId>scalariform-maven-plugin</artifactId>
+        <version>${scalariform-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>format</goal>
+            </goals>
+            <configuration>
+              <placeScaladocAsterisksBeneathSecondAsterisk>true</placeScaladocAsterisksBeneathSecondAsterisk>
+              <doubleIndentConstructorArguments>true</doubleIndentConstructorArguments>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
