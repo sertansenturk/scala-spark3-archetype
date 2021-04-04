@@ -11,13 +11,16 @@
   <packaging>jar</packaging>
 
   <properties>
+    <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+    <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
     <maven-surefire-plugin.version>2.7</maven-surefire-plugin.version>
+    <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
     <scala.major-minor-version>2.12</scala.major-minor-version>
     <scala.version>2.12.13</scala.version>
     <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
     <scalariform-maven-plugin.version>0.2.2</scalariform-maven-plugin.version>
     <scalatest.version>3.0.0</scalatest.version>
-    <scalatest-maven-plugin.version>1.0</scalatest-maven-plugin.version>
+    <scalatest-maven-plugin.version>2.0.2</scalatest-maven-plugin.version>
     <spark.version>3.1.1</spark.version>
   </properties>
 
@@ -47,8 +50,7 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>src/main/scala</sourceDirectory>
-    <testSourceDirectory>src/test/scala</testSourceDirectory>
+    <finalName>${project.name}-${project.version}</finalName>
     <plugins>
       <plugin>
         <groupId>net.alchim31.maven</groupId>
@@ -71,6 +73,37 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin.version}</version>
+          <configuration>
+              <source>1.8</source>
+              <target>1.8</target>
+          </configuration>
+          <executions>
+              <execution>
+                  <phase>compile</phase>
+                  <goals>
+                      <goal>compile</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven-jar-plugin.version}</version>
+          <executions>
+              <execution>
+                  <id>all</id>
+                  <goals>
+                      <goal>jar</goal>
+                  </goals>
+                  <phase>package</phase>
+              </execution>
+          </executions>
       </plugin>
       <!-- disable surefire -->
       <plugin>
@@ -113,6 +146,29 @@
             <configuration>
               <placeScaladocAsterisksBeneathSecondAsterisk>true</placeScaladocAsterisksBeneathSecondAsterisk>
               <doubleIndentConstructorArguments>true</doubleIndentConstructorArguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Maven shade plugin: to build fat jars -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>${maven-shade-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <artifactSet>
+                <includes>
+                  <include>com.github.scopt:*</include>
+                  <include>org.yaml:*</include>
+                </includes>
+              </artifactSet>
             </configuration>
           </execution>
         </executions>
