@@ -4,7 +4,7 @@
 name: CI with Maven
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -21,4 +21,4 @@ jobs:
     - name: Publish to GitHub Packages
       env:
         GITHUB_TOKEN: ${{ github.token }}
-      run: mvn deploy
+      run: mvn clean install
