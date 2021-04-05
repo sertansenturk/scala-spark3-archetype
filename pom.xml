@@ -6,16 +6,16 @@
 
   <groupId>com.sertansenturk</groupId>
   <artifactId>scala-spark3-archetype</artifactId>
-  <version>0.3.0</version>
+  <version>0.3.0-SNAPSHOT</version>
   <inceptionYear>2021</inceptionYear>
   <packaging>jar</packaging>
 
   <distributionManagement>
-    <repository>
+    <snapshotRepository>
       <id>github</id>
       <name>GitHub OWNER Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/sertansenturk/${project.artifactId}</url>
-    </repository>
+    </snapshotRepository>
   </distributionManagement>
 
   <properties>
@@ -24,12 +24,13 @@
     <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <scala.major-minor-version>2.12</scala.major-minor-version>
-    <scala.version>${scala.major-minor-version}.13</scala.version>
+    <scala.version>${scala.major-minor-version}.12</scala.version>
     <scala-maven-plugin.version>3.4.6</scala-maven-plugin.version>
     <scalariform-maven-plugin.version>0.2.3</scalariform-maven-plugin.version>
     <scalatest.version>3.0.9</scalatest.version>
     <scalatest-maven-plugin.version>2.0.2</scalatest-maven-plugin.version>
     <scopt.version>4.0.1</scopt.version>
+    <scoverage.plugin.version>1.4.0</scoverage.plugin.version>
     <spark.version>3.0.1</spark.version>
     <spark-testing-base.version>3.0.1_1.0.0</spark-testing-base.version>
   </properties>
@@ -167,6 +168,22 @@
               <placeScaladocAsterisksBeneathSecondAsterisk>true</placeScaladocAsterisksBeneathSecondAsterisk>
               <doubleIndentConstructorArguments>true</doubleIndentConstructorArguments>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.scoverage</groupId>
+        <artifactId>scoverage-maven-plugin</artifactId>
+        <version>${scoverage.plugin.version}</version>
+        <configuration>
+          <highlighting>true</highlighting>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
