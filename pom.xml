@@ -6,7 +6,7 @@
 
   <groupId>com.sertansenturk</groupId>
   <artifactId>scala-spark3-archetype</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <inceptionYear>2021</inceptionYear>
   <packaging>jar</packaging>
 

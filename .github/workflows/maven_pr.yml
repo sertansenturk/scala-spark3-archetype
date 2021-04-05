@@ -1,10 +1,10 @@
 # This workflow will build a Scala project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: CI with Maven
+name: Pull Request CI with Maven
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -21,4 +21,4 @@ jobs:
     - name: Publish to GitHub Packages
       env:
         GITHUB_TOKEN: ${{ github.token }}
-      run: mvn deploy
+      run: mvn clean install
