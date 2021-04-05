@@ -8,14 +8,14 @@ object SparkApp extends App {
   val spark = SparkSession.builder()
     .master("local[1]")
     .appName("SparkByExample")
-    .getOrCreate();
+    .getOrCreate()
 
   val transformer = new LanguageTransformer()(spark)
 
   println("First SparkContext:")
-  println("APP Name :" + spark.sparkContext.appName);
-  println("Deploy Mode :" + spark.sparkContext.deployMode);
-  println("Master :" + spark.sparkContext.master);
+  println("APP Name :" + spark.sparkContext.appName)
+  println("Deploy Mode :" + spark.sparkContext.deployMode)
+  println("Master :" + spark.sparkContext.master)
 
   val data: Seq[(String, Int)] = Seq(("Java", 2000), ("Python", 100000), ("Scala", 300))
 
