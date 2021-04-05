@@ -7,21 +7,25 @@ on:
   push:
     branches: [ main ]
 
+  pull_request:
+    branches: [ main ]
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java-version: [ 8, 11 ]
 
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
       uses: actions/setup-java@v1
       with:
-        java-version: '11'
-    - name: Publish to GitHub Packages
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      run: mvn deploy
+        java-version: ${{ matrix.java-version }}
+    - name: Install jar
+      run: mvn -B clean install --no-transfer-progress --file pom.xml
 
   coverage:
     needs: build
@@ -38,3 +42,20 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true
+
+  publish-snapshot:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up settings.xml for GitHub Packages
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Publish SNAPSHOT version to GitHub Packages
+        run: mvn -B --no-transfer-progress deploy -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
