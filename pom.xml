@@ -14,7 +14,7 @@
     <repository>
       <id>github</id>
       <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/sertansenturk/${artifactId}</url>
+      <url>https://maven.pkg.github.com/sertansenturk/${project.artifactId}</url>
     </repository>
   </distributionManagement>
 
