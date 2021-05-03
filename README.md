@@ -11,9 +11,9 @@ A maven archetype to kickstart projects in Scala/Spark.
 
 ## Introduction
 
-This archetype consists of Spark 3 as well as complementary libraries for testing, code coverage, automatic code stylization etc.
+This archetype consists of Spark 3 and complementary libraries for testing, code coverage, automatic code stylization, etc.
 
-For the full list of dependencies and versions, please refer to the [pom.xml](pom.xml) file.
+For the complete list of dependencies and versions, please refer to the [pom.xml](pom.xml) file.
 
 ## Local install
 
@@ -27,9 +27,7 @@ The [mvn command above](#local-install) also runs the tests under [/src/test](./
 
 ## Testing and Continous Integration
 
-The pushes and Pull Requests to the `main` branch are automatically built and tested by Github Actions. Upon a successful build Github actions sends the test coverage report to codecov and publishes a snapshot in Github packages.
-
-Please refer to the [maven.yml](.github/workflows/maven.yml) for the Github actions workflow, [the repos's codecov page](https://app.codecov.io/gh/sertansenturk/scala-spark3-archetype) for the code coverage reports, and [Github Packages](https://github.com/sertansenturk?tab=packages&repo_name=scala-spark3-archetype) for the existing snapshots.
+The pushes and Pull Requests to the `main` branch are automatically built and tested by Github Actions ([workflow yaml file](.github/workflows/maven.yml)). Upon a successful build, Github actions then uploads the test coverage report ([codecov link](https://app.codecov.io/gh/sertansenturk/scala-spark3-archetype)) and publishes the latest snapshot ([Github Packages](https://github.com/sertansenturk?tab=packages&repo_name=scala-spark3-archetype)).
 
 ## 4. License
 
