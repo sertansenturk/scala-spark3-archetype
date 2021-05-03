@@ -1,6 +1,7 @@
 # scala-spark3-archetype
 
 [![Actions Status](https://github.com/sertansenturk/scala-spark3-archetype/actions/workflows/maven.yml/badge.svg)](https://github.com/sertansenturk/scala-spark3-archetype/actions)
+[![Github Package](https://img.shields.io/badge/Github_Package-Latest-blue.svg)](https://github.com/sertansenturk/scala-spark3-archetype/packages/710913)
 [![Scala version](https://img.shields.io/badge/Scala-2.12.13-red)](https://www.scala-lang.org/download/2.12.13.html)
 [![Spark version](https://img.shields.io/badge/Spark-3.0.1-orange)](https://spark.apache.org/releases/spark-release-3-0-1.html)
 [![codecov](https://codecov.io/gh/sertansenturk/scala-spark3-archetype/branch/main/graph/badge.svg?token=GdkSYkGabC)](https://codecov.io/gh/sertansenturk/scala-spark3-archetype)
@@ -27,7 +28,9 @@ The [mvn command above](#local-install) also runs the tests under [/src/test](./
 
 ## Testing and Continous Integration
 
-The pushes and Pull Requests to the `main` branch are automatically built and tested by Github Actions ([workflow yaml file](.github/workflows/maven.yml)). Upon a successful build, Github actions then uploads the test coverage report ([codecov link](https://app.codecov.io/gh/sertansenturk/scala-spark3-archetype)) and publishes the latest snapshot ([Github Packages](https://github.com/sertansenturk?tab=packages&repo_name=scala-spark3-archetype)).
+The pushes and Pull Requests to the `main` branch are automatically built and tested by Github Actions ([workflow yaml file](.github/workflows/maven.yml)).
+
+Upon a successful build, Github actions uploads the test coverage report ([codecov link](https://app.codecov.io/gh/sertansenturk/scala-spark3-archetype)) and publishes a snapshot ([Github Packages](https://github.com/sertansenturk/scala-spark3-archetype/packages/)).
 
 ## 4. License
 
